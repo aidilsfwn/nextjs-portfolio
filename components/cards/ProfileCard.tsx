@@ -1,7 +1,16 @@
 import Image from 'next/image'
 import { FaLinkedin } from 'react-icons/fa'
+import { PrimaryButton } from '..'
 
 const ProfileCard = () => {
+  const handleDownload = () => {
+    const fileUrl = '/Aidil-Safwan-0193607015-CV.pdf'
+    const link = document.createElement('a')
+    link.href = fileUrl
+    link.download = 'Aidil-Safwan-0193607015-CV.pdf'
+    link.click()
+  }
+
   return (
     <div className='flex max-w-screen-md flex-col md:w-full md:self-center justify-center items-center rounded-lg bg-white dark:bg-slate-700 mx-6 px-6 py-8 shadow-md'>
       <div className='bg-white dark:bg-slate-500 shadow-lg px-4 py-2 rounded-lg'>
@@ -20,6 +29,9 @@ const ProfileCard = () => {
           <br />
           +60193607015
         </p>
+      </div>
+      <div className='mt-4'>
+        <PrimaryButton title='Download CV' onClick={handleDownload} />
       </div>
     </div>
   )
